@@ -1,27 +1,20 @@
 // [128, 97, 121, 123, 98, 97, 105]
-// -31
-// 24
-// 2
-// -25
-// -1
-// 8
 
 const shares = [128, 97, 121, 123, 98, 97, 105]
 
 const maxProfit = function(arr) {
-    let max = null;
+    let minElement = arr[0];
+    let maxDiff = arr[1] - arr[0];
     for (let i = 0; i < arr.length - 1; i++) {
-        let profit = arr[i + 1] - arr[i];
-        
-        if (!max) {
-            max = profit;
+        if ((arr[i] - minElement) > maxDiff) {
+            maxDiff = arr[i] - minElement;
         }
 
-        if (max < profit) {
-            max = profit;
+        if (arr[i] < minElement) {
+            minElement = arr[i]
         }
     }
-    return max;
+    return maxDiff;
 }
 
 console.log(maxProfit(shares))

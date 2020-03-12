@@ -43,6 +43,8 @@ function findABook(books, dewey, title, start, end) {
     }
 };
 
+// use hash map
+
 const books =[
     {
         dewey: '005.133',
